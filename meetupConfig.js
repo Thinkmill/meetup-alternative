@@ -4,7 +4,7 @@ const MEETUP = {
   siteUrl: 'https://v5.keystonejs.com/',
   themeColor: '#9b6bcd',
   logo: {
-    src: '/static/logo.png',
+    src: '/public/logo.png',
     width: 82,
     height: 82,
   },
