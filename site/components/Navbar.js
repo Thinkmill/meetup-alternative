@@ -80,8 +80,7 @@ const Header = props => {
         alignItems: 'center',
         background: background,
         display: 'flex',
-        paddingLeft: HEADER_GUTTER,
-        paddingRight: HEADER_GUTTER,
+        padding: HEADER_GUTTER,
       })}
       {...props}
     />
