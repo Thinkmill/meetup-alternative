@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useRef } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
@@ -29,6 +29,7 @@ const userFragment = `
  */
 export const AuthProvider = ({ children, initialUserValue }) => {
   const [authenticatedUser, setAuthenticatedUser] = useState(initialUserValue);
+  const isLoading = useRef(true);
 
   const [signIn] = useMutation(
     gql`
@@ -69,6 +70,7 @@ export const AuthProvider = ({ children, initialUserValue }) => {
       throw error;
     }
 
+    if (!isLoading) isLoading.current = false;
     if (authenticateUserWithPassword && authenticateUserWithPassword.item) {
       setAuthenticatedUser(authenticateUserWithPassword.item);
     }
@@ -90,10 +92,9 @@ export const AuthProvider = ({ children, initialUserValue }) => {
   };
 
   const value = {
-    isInitialising: isInitialising.current,
     user: authenticatedUser,
-    isAuthenticated: !!user,
-    isLoading: loading,
+    isAuthenticated: !!authenticatedUser,
+    isLoading,
     signin,
     signout,
   };
