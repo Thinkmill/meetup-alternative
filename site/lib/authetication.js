@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useRef } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
@@ -28,7 +28,7 @@ const userFragment = `
  * authenticated state and provides methods for managing the auth state.
  */
 export const AuthProvider = ({ children, initialUserValue }) => {
-  const isInitialising = useRef(true);
+  const [authenticatedUser, setAuthenticatedUser] = useState(initialUserValue);
 
   const [signIn] = useMutation(
     gql`
@@ -54,25 +54,6 @@ export const AuthProvider = ({ children, initialUserValue }) => {
     { fetchPolicy: 'no-cache' }
   );
 
-  const { loading, error, data } = useQuery(
-    gql`
-    query {
-      authenticatedUser {
-        ${userFragment}
-      }
-    }
-  `,
-    {
-      fetchPolicy: 'no-cache',
-    }
-  );
-
-  const { authenticatedUser } = data || {};
-
-  if (!loading) isInitialising.current = false;
-
-  let user = isInitialising.current ? initialUserValue : authenticatedUser;
-
   const signin = async ({ email, password }) => {
     const {
       data: { authenticateUserWithPassword },
@@ -89,7 +70,7 @@ export const AuthProvider = ({ children, initialUserValue }) => {
     }
 
     if (authenticateUserWithPassword && authenticateUserWithPassword.item) {
-      user = authenticateUserWithPassword.item;
+      setAuthenticatedUser(authenticateUserWithPassword.item);
     }
   };
 
@@ -104,13 +85,13 @@ export const AuthProvider = ({ children, initialUserValue }) => {
     }
 
     if (unauthenticateUser && unauthenticateUser.success) {
-      user = null;
+      setAuthenticatedUser(null);
     }
   };
 
   const value = {
     isInitialising: isInitialising.current,
-    user,
+    user: authenticatedUser,
     isAuthenticated: !!user,
     isLoading: loading,
     signin,
