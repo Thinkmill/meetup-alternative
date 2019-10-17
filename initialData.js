@@ -115,6 +115,6 @@ const initialData = {
   Rsvp: [],
   Sponsor: [
     { name: 'Keystone 5', website: 'https://v5.keystonejs.com' },
-    { name: 'Thinkmill', website: 'www.thinkmill.com.au' },
+    { name: 'Thinkmill', website: 'https://www.thinkmill.com.au' },
   ],
 };
