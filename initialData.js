@@ -105,10 +105,36 @@ const initialData = {
       themeColor: '#334455',
       // Default to "1 month from now"
       startTime: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30).toISOString(),
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat, est et porttitor ultricies, odio nisi consequat arcu, eget ultrices nulla elit in augue. Fusce accumsan mattis felis eget lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent commodo velit id cursus bibendum. Vivamus pellentesque, velit semper ullamcorper ullamcorper, massa mauris laoreet odio, vitae hendrerit orci lacus sit amet augue.',
       durationMins: 150,
       maxRsvps: 120,
       isRsvpAvailable: true,
       locationAddress: 'Worldwide',
+    },
+    {
+      name: 'Fyre Festival',
+      status: 'active',
+      themeColor: '#334455',
+      startTime: new Date(Date.now() + 2000 * 60 * 60 * 24 * 30).toISOString(),
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat, est et porttitor ultricies, odio nisi consequat arcu, eget ultrices nulla elit in augue. Fusce accumsan mattis felis eget lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent commodo velit id cursus bibendum. Vivamus pellentesque, velit semper ullamcorper ullamcorper, massa mauris laoreet odio, vitae hendrerit orci lacus sit amet augue.',
+      durationMins: 5,
+      maxRsvps: 5000,
+      isRsvpAvailable: true,
+      locationAddress: 'Exuma, Bahamas',
+    },
+    {
+      name: 'Catalina Wine Mixer',
+      status: 'active',
+      themeColor: '#334455',
+      startTime: new Date(Date.now() + 1500 * 60 * 60 * 24 * 30).toISOString(),
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat, est et porttitor ultricies, odio nisi consequat arcu, eget ultrices nulla elit in augue. Fusce accumsan mattis felis eget lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent commodo velit id cursus bibendum. Vivamus pellentesque, velit semper ullamcorper ullamcorper, massa mauris laoreet odio, vitae hendrerit orci lacus sit amet augue.',
+      durationMins: 150,
+      maxRsvps: 2500,
+      isRsvpAvailable: true,
+      locationAddress: 'Catalina Island',
     },
   ],
   Talk: [

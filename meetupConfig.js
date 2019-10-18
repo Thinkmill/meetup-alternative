@@ -2,11 +2,11 @@ const MEETUP = {
   name: 'Meetup Alternative',
   twitterHandle: '@keystonejs',
   siteUrl: 'https://v5.keystonejs.com/',
-  themeColor: '#9b6bcd',
+  themeColor: '#b591da',
   logo: {
     src: '/logo.png',
-    width: 82,
-    height: 82,
+    width: 64,
+    height: 64,
   },
   homeIntro: `
 <p>A free, open source, self-hosted alternative to Meetup.</p>
