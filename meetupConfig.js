@@ -50,7 +50,7 @@ const MEETUP = {
     copyrightText: `
 <p>Powered by <a href="https://v5.keystonejs.com">KeystoneJS</a>.</p>
 <p>If you run a meetup, please feel free to clone this project and make your own!
-  <a href="https://github.com/MadeByMike/keystone-meetup-alternative/">You can find it on GitHub</a>.
+  <a href="https://github.com/thinkmill/meetup-alternative/">You can find it on GitHub</a>.
 </p>
 `,
   },
