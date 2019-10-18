@@ -10,7 +10,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Meta from '../components/Meta';
 
-export default () => {
+const SignOut = () => {
   const { isAuthenticated, signout } = useAuth();
 
   useEffect(() => {
@@ -32,3 +32,5 @@ export default () => {
     </>
   );
 };
+
+export default SignOut;

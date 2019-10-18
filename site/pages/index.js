@@ -2,9 +2,7 @@
 import { useQuery } from '@apollo/react-hooks';
 import getConfig from 'next/config';
 import { jsx } from '@emotion/core';
-import gql from 'graphql-tag';
 
-import Link from 'next/link';
 import EventItems from '../components/EventItems';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -12,7 +10,7 @@ import Meta from '../components/Meta';
 import { GET_CURRENT_EVENTS } from '../graphql/events';
 import { GET_EVENT_RSVPS } from '../graphql/rsvps';
 import { GET_SPONSORS } from '../graphql/sponsors';
-import { withApollo } from '../lib/withApollo';
+import Link from 'next/link';
 
 import Talks from '../components/Talks';
 import Rsvp from '../components/Rsvp';
@@ -37,12 +35,6 @@ import {
   pluralLabel,
 } from '../helpers';
 import { mq } from '../helpers/media';
-
-import Head from 'next/head';
-import { ToastProvider } from 'react-toast-notifications';
-import { AuthProvider } from '../lib/authetication';
-import StylesBase from '../primitives/StylesBase';
-import GoogleAnalytics from '../components/GoogleAnalytics';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -354,43 +346,10 @@ const Slant = ({ fill, height = 5, placement }) => {
   );
 };
 
-const IndexPage = ({ user, now }) => {
-  return (
-    <ToastProvider>
-      <AuthProvider initialUserValue={user}>
-        <Head>
-          <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
-          />
-        </Head>
-        <StylesBase />
-        <Home now={now} />
-      </AuthProvider>
-      <GoogleAnalytics />
-    </ToastProvider>
-  );
-};
-
-IndexPage.getInitialProps = async ({ apolloClient }) => {
-  const data = await apolloClient.query({
-    query: gql`
-      query {
-        authenticatedUser {
-          id
-          name
-          isAdmin
-        }
-      }
-    `,
-    fetchPolicy: 'network-only',
-  });
-
+Home.getInitialProps = async ({ apolloClient }) => {
   return {
     now: new Date().toISOString(),
-    user: data.data ? data.data.authenticatedUser : undefined,
   };
 };
 
-export default withApollo(IndexPage);
+export default Home;

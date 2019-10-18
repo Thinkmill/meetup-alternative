@@ -111,7 +111,18 @@ const initialData = {
       locationAddress: 'Worldwide',
     },
   ],
-  Talk: [{ name: 'A very good talk' }, { name: 'Meetups powered by Keystone 5' }],
+  Talk: [
+    {
+      name: 'A very good talk',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat, est et porttitor ultricies, odio nisi consequat arcu, eget ultrices nulla elit in augue. Fusce accumsan mattis felis eget lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent commodo velit id cursus bibendum. Vivamus pellentesque, velit semper ullamcorper ullamcorper, massa mauris laoreet odio, vitae hendrerit orci lacus sit amet augue.',
+    },
+    {
+      name: 'Meetups powered by Keystone 5',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat, est et porttitor ultricies, odio nisi consequat arcu, eget ultrices nulla elit in augue. Fusce accumsan mattis felis eget lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent commodo velit id cursus bibendum. Vivamus pellentesque, velit semper ullamcorper ullamcorper, massa mauris laoreet odio, vitae hendrerit orci lacus sit amet augue.',
+    },
+  ],
   Rsvp: [],
   Sponsor: [
     { name: 'Keystone 5', website: 'https://v5.keystonejs.com' },

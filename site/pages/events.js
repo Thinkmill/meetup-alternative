@@ -1,7 +1,6 @@
 /** @jsx jsx */
 
 import { jsx } from '@emotion/core';
-
 import { useQuery } from '@apollo/react-hooks';
 
 import { Container, Loading, H2 } from '../primitives';
@@ -13,7 +12,7 @@ import { gridSize } from '../theme';
 
 import { GET_ALL_EVENTS } from '../graphql/events';
 
-export default function Events() {
+function Events() {
   const { data, loading, error } = useQuery(GET_ALL_EVENTS);
   if (error) {
     console.error('Failed to load events', error);
@@ -37,3 +36,5 @@ export default function Events() {
     </>
   );
 }
+
+export default Events;
