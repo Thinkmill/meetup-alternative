@@ -17,7 +17,6 @@ function Events() {
   if (error) {
     console.error('Failed to load events', error);
   }
-  const { allEvents } = data;
   return (
     <>
       <Meta title="Events" />
@@ -29,7 +28,7 @@ function Events() {
         ) : error ? (
           <p>Something went wrong. Please try again.</p>
         ) : (
-          <EventItems events={allEvents} />
+          <EventItems events={data.allEvents} />
         )}
       </Container>
       <Footer />
