@@ -18,6 +18,8 @@ export const makeMetaUrl = path => {
 
 const logoPath = makeMetaUrl(meetup.logo.src);
 
+const keyMap = (tag, idx) => <tag.type key={tag.key || idx} {...tag.props} />;
+
 const rootTags = [
   <meta property="og:url" content={meetup.siteUrl} />,
   <meta property="og:type" content="website" />,
@@ -29,14 +31,14 @@ const rootTags = [
   <meta name="twitter:site" content={meetup.twitterHandle} />,
   <meta name="twitter:card" content="summary" />,
   <meta name="twitter:image" content={logoPath} />,
-].map((tag, idx) => <tag.type key={idx} {...tag.props} />);
+].map(keyMap);
 
 function getUniqueTags(children) {
   // NOTE: the concatenation order is important for the unique filter;
   // we want to give `children` precedence over root tags.
   const tags = Children.toArray(children.concat(rootTags));
   const uniqueTags = uniqBy(tags, t => t.props.name || t.props.property);
-  return uniqueTags.map((tag, idx) => <tag.type key={tag.key || idx} {...tag.props} />);
+  return uniqueTags.map(keyMap);
 }
 
 export default function PageMeta({ children, description, title, titleExclusive }) {
