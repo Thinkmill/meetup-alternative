@@ -29,7 +29,7 @@ const rootTags = [
   <meta name="twitter:site" content={meetup.twitterHandle} />,
   <meta name="twitter:card" content="summary" />,
   <meta name="twitter:image" content={logoPath} />,
-];
+].map((tag, idx) => <tag.type key={idx} {...tag.props} />);
 
 function getUniqueTags(children) {
   // NOTE: the concatenation order is important for the unique filter;
