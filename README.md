@@ -1,6 +1,6 @@
 # Meetup Alternative
 
-A free, open source, self hosted alternative to Meetup. Powered by Keystone 5, Next.js and Emotion.
+A free, open source, self hosted alternative to Meetup. Powered by [Keystone 5](https://github.com/keystonejs/keystone-5/), [Next.js](https://nextjs.org/) and [Emotion](https://github.com/emotion-js/emotion).
 
 _Note_: This is a work in progress and we'd love your contributions. Please see the read the issues and contributing guidelines if you'd like to help make this project better.
 
