@@ -17,7 +17,7 @@ const { publicRuntimeConfig } = getConfig();
 function About() {
   const { meetup } = publicRuntimeConfig;
   const { data, loading, error } = useQuery(GET_ORGANISERS);
-  const hasOrganisers = Boolean(data.allOrganisers && data.allOrganisers.length);
+  const hasOrganisers = Boolean(data && data.allOrganisers && data.allOrganisers.length);
   const allOrganisers = hasOrganisers
     ? data.allOrganisers.filter(o => o.user).map(o => o.user)
     : [];
