@@ -38,7 +38,7 @@ class ProfilePage extends Component {
     }
 
     if (!user) {
-      return <h1>Not signded in. Redirecting...</h1>;
+      return <h1>Not signed in. Redirecting...</h1>;
     }
 
     return (
