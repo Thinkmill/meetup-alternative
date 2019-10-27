@@ -187,5 +187,3 @@ const UPDATE_USER = gql`
     }
   }
 `;
-
-export default (Profile);
