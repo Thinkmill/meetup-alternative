@@ -3,11 +3,12 @@ import gql from 'graphql-tag';
 import { useFormState } from 'react-use-form-state';
 import { useToasts } from 'react-toast-notifications';
 import { useMutation } from '@apollo/react-hooks';
+import { withApollo } from '../lib/withApollo';
 
 import { AvatarUpload } from '../components/AvatarUpload';
 import Meta from '../components/Meta';
 
-export default class ProfilePage extends Component {
+class ProfilePage extends Component {
   static async getInitialProps(ctx) {
     try {
       const { data, error } = await ctx.apolloClient.query({
@@ -24,15 +25,25 @@ export default class ProfilePage extends Component {
       };
     } catch (error) {
       // If there was an error, we need to pass it down so the page can handle it.
+      console.log('error', error);
       return { error };
     }
   }
 
   render() {
-    if (this.props.error) return <h1>Error loading User Profile.</h1>;
+    const { user, error } = this.props;
+
+    if (error) {
+      return <h1>Error loading User Profile.</h1>;
+    }
+
+    if (!user) {
+      return <h1>Not signed in. Redirecting...</h1>;
+    }
+
     return (
       <>
-        <Meta title={this.props.user.name} />
+        <Meta title={user.name} />
         <Profile {...this.props} />
       </>
     );
@@ -188,4 +199,4 @@ const UPDATE_USER = gql`
   }
 `;
 
-export default (Profile);
+export default withApollo(ProfilePage);
