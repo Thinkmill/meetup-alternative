@@ -27,7 +27,7 @@ const access = {
     if (!item) {
       return false;
     }
-    return { id: item.id };
+    return true;
   },
 };
 
